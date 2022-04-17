@@ -2,7 +2,7 @@ package com.example.hackerton.utils
 
 object Url {
 
-    const val URL = "http://58.229.6.137:3000/api-docs"
+    const val URL = "http://58.229.6.137:3000"
 
     const val SIGN_IN = "/auth/signin"
 
