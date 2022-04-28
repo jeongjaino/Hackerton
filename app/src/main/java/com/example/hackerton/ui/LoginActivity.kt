@@ -2,7 +2,9 @@ package com.example.hackerton.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.example.hackerton.App
 import com.example.hackerton.databinding.ActivityLoginBinding
 import com.example.hackerton.reqeust.SignInInfo
 import com.example.hackerton.reqeust.SignUpInfo
@@ -84,10 +86,7 @@ class LoginActivity : AppCompatActivity() {
                         val body = response.body()
                         withContext(Dispatchers.Main) {
                             body?.let { response ->
-                                Toast.makeText(this@LoginActivity,
-                                    response.token,
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                App.tokenManager.token = response.token
                             }
                         }
                     } else{
