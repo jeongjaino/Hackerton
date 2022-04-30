@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.hackerton.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_listFragment"
+            app:destination="@id/contractFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_careerFragment"
+            app:destination="@id/careerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contractFragment"
+        android:name="com.example.hackerton.ui.contract.ContractFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_contract" >
+        <action
+            android:id="@+id/action_contractFragment_to_calendarFragment2"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.hackerton.ui.calendar.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/careerFragment"
+        android:name="com.example.hackerton.ui.career.CareerFragment"
+        android:label="fragment_career"
+        tools:layout="@layout/fragment_career" />
+</navigation>

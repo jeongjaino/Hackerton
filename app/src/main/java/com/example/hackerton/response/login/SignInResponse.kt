@@ -1,4 +1,4 @@
-package com.example.hackerton.response
+package com.example.hackerton.response.login
 
 data class SignInResponse (
     val token : String

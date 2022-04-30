@@ -1,13 +1,14 @@
-package com.example.hackerton.ui
+package com.example.hackerton.ui.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.hackerton.App
 import com.example.hackerton.databinding.ActivityLoginBinding
-import com.example.hackerton.reqeust.SignInInfo
-import com.example.hackerton.reqeust.SignUpInfo
+import com.example.hackerton.reqeust.login.SignInInfo
+import com.example.hackerton.reqeust.login.SignUpInfo
+import com.example.hackerton.ui.MainActivity
 import com.example.hackerton.utils.RetrofitUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,20 +23,20 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        /*
         binding.signUpButton.setOnClickListener {
             signUp()
-        }
+        }*/
         binding.signInButton.setOnClickListener {
             signIn()
         }
     }
-
+/*
     private fun signUp(){
-        val name = binding.nameEditText.text.toString()
         val email = binding.emailEditText.text.toString()
         val password = binding.passwordEditText.text.toString()
 
-        if(name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()){
+        if(name.isNotEmpty() &&email.isNotEmpty() && password.isNotEmpty()){
             CoroutineScope(Dispatchers.IO).launch{
                 try{
                     val response = RetrofitUtil.userService.userSignUp(
@@ -69,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this@LoginActivity,"모든 정보를 입력하세요!.", Toast.LENGTH_SHORT
             ).show()
         }
-    }
+    }*/
     private fun signIn(){
         val email = binding.emailEditText.text.toString()
         val password = binding.passwordEditText.text.toString()
@@ -86,7 +87,9 @@ class LoginActivity : AppCompatActivity() {
                         val body = response.body()
                         withContext(Dispatchers.Main) {
                             body?.let { response ->
-                                App.tokenManager.token = response.token
+                                App.sharedPreferenceManager.token = response.token
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                startActivity(intent)
                             }
                         }
                     } else{

@@ -1,9 +1,9 @@
 package com.example.hackerton.service
 
-import com.example.hackerton.reqeust.SignInInfo
-import com.example.hackerton.reqeust.SignUpInfo
-import com.example.hackerton.response.SignInResponse
-import com.example.hackerton.response.SignUpResponse
+import com.example.hackerton.reqeust.login.SignInInfo
+import com.example.hackerton.reqeust.login.SignUpInfo
+import com.example.hackerton.response.login.SignInResponse
+import com.example.hackerton.response.login.SignUpResponse
 import com.example.hackerton.utils.Url.SIGN_IN
 import com.example.hackerton.utils.Url.SIGN_UP
 import retrofit2.Response
